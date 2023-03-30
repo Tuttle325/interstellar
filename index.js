@@ -17,50 +17,42 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "static")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "index.html"));
+  res.sendFile(path.join(__dirname, "static", "index.html"));
 });
 
-app.get("/search", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "search.html"));
+app.get("/web", (req, res) => {
+  res.sendFile(path.join(__dirname, "static", "web.html"));
 });
 
 app.get("/play", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "games.html"));
+  res.sendFile(path.join(__dirname, "static", "play.html"));
 });
 
 app.get("/apps", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "apps.html"));
-});
-
-app.get("/go", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "go.html"));
+  res.sendFile(path.join(__dirname, "static", "apps.html"));
 });
 
 app.get("/math", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "math.html"));
+  res.sendFile(path.join(__dirname, "static", "math.html"));
 });
 
 app.get("/chat", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "chat.html"));
+  res.sendFile(path.join(__dirname, "static", "chat.html"));
+});
+
+app.get("/go", (req, res) => {
+  res.sendFile(path.join(__dirname, "static", "go.html"));
 });
 
 app.get("/settings", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "settings.html"));
+  res.sendFile(path.join(__dirname, "static", "settings.html"));
 });
 
 app.get("/donate", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "donate.html"));
-});
-
-app.get("/404", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "404.html"));
-});
-
-app.get("*", (req, res) => {
-  res.redirect("/404");
+  res.sendFile(path.join(__dirname, "static", "donate.html"));
 });
 
 // Bare Server
@@ -87,3 +79,4 @@ server.on("listening", () => {
 server.listen({
   port: process.env.PORT,
 });
+
